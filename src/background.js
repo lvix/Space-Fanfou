@@ -1,4 +1,4 @@
-/* 文件缓存 */
+ /* 文件缓存 */
 
 var cache = { };
 function cacheFile(file) {

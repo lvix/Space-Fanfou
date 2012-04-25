@@ -82,6 +82,11 @@ var plugins = [
         css: 'clean_personal_theme.css'
     },
     {
+        name: 'boss_key',
+        js: 'boss_key.js',
+        css: 'boss_key.css'
+    },
+    {
         name: 'auto_pager',
         js: 'auto_pager.js'
     },

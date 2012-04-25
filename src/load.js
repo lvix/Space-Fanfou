@@ -58,6 +58,7 @@ port.onMessage.addListener(function(msg) {
             for (var i = 0; i < scripts.length; ++i)
                 insertScript.apply(insertScript, scripts[i]);
             SF.loaded = true;
+                insertScript('SF.loaded = true', 'load');
             delete scripts;
         });
     } else if (msg.type == 'update') {
@@ -86,7 +87,7 @@ port.onMessage.addListener(function(msg) {
                     break;
                 case 'disable':
                     updates.push('if(' + plugin + ')' + plugin + '.unload();');
-                    updates.push('jQuery(' + 
+                    updates.push('jQuery(' +
                                  '"#sf_script_' + item.name + '").remove();');
                     updates.push('jQuery(' +
                                  '"#sf_style_' + item.name + '").remove();');

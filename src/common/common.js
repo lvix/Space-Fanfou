@@ -2,6 +2,47 @@
 
 (function($) {
 
+    /* 老板键 */
+
+    $(window).bind('keypress', function(e) {
+        if (e.target !== document.body) return;
+        if (e.ctrlKey) return;
+        if (e.keyCode === 122) {
+            bosskey();
+            //SF.status.toggle();
+        }
+    });
+
+    SF.status = {
+        get: function() {
+            return localStorage.getItem(this.key) === 'true';
+        },
+        set: function(status) {
+            localStorage.setItem(this.key, status);
+        },
+        toggle: function() {
+            this.set(! this.get());
+        },
+        key: 'sf_status'
+        };
+
+    function bosskey() {
+        var $toggle;
+        SF.fn.waitFor(function() {
+            $toggle = $('#sf_boss_key');
+            return $toggle.length;
+        },
+        function() {
+            SF.fn.emulateClick($toggle);
+        });
+    }
+
+    if (! SF.status.get()) {
+        SF.fn.waitFor(function() {
+            return SF.loaded;
+        }, bosskey);
+    }
+
     /* 自动选择 */
 
     var $msg = $('#update textarea');
@@ -26,9 +67,9 @@
             }
         }
     }
-    
+
     /* 将回复链接全部处理为回复到所有 */
-    
+
     function changeHref($item) {
         if (! $item.is('li')) return;
         if ($item.attr('replytoall')) return;
