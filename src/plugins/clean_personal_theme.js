@@ -2,7 +2,7 @@ SF.pl.clean_personal_theme = new SF.plugin((function($) {
     if (! SF.fn.isUserPage()) return;
 
     var default_style = 
-            'body{background-color:#acdae5;' + 
+            'body{background-color:#acdae5;' +
             'background-image:url(http://static.fanfou.com/img/bg/0.png);' +
             'background-repeat:no-repeat;background-attachment:fixed;' +
             'background-position:top left;color:#222222}' +
