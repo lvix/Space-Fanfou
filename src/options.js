@@ -45,7 +45,7 @@ $(function() {
     });
 
     $.getJSON('manifest.json', function(data) {
-        $('#version').text(data.version);
+        //$('#version').text(data.version);
     });
 
     // 预览图
